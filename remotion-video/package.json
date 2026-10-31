@@ -25,6 +25,7 @@
   "scripts": {
     "dev": "remotionb studio",
     "build": "remotionb bundle",
+    "render": "remotionb render TernaryCNFETExplainer ../video/ternary_cnfet_educational_video.mp4 --codec=h265 --crf=20 --concurrency=8",
     "upgrade": "remotionb upgrade",
     "lint": "eslint src && tsc"
   }
