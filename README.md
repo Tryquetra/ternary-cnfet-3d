@@ -41,6 +41,7 @@ By integrating two nanotubes of distinct diameters under a shared gate bus ($V_{
 
 ## 3. Repository Structure
 
+* [`AGENTS.md`](AGENTS.md): Technical onboarding guide, mathematical lattice invariants, MCP verification workflow, and pedagogical extension roadmap for autonomous coding agents.
 * [`blend/cnfet_ternary_threshold.blend`](blend/cnfet_ternary_threshold.blend): Complete Blender 4.5 LTS scene containing the dual `SWCNT (13,0)` and `SWCNT (7,0)` channels, Palladium/Gold ($\text{Pd}/\text{Au}$) ohmic contacts, cutaway $\text{HfO}_2$ high-k dielectric ($\text{IOR} = 1.90$), GAA metal gate collars, emissive charge carriers, and 3D conduction band curves ($E_{C1}$, $E_{C2}$) animated via Shape Keys across frames 1 to 180.
 * [`scripts/build_ternary_cnfet.py`](scripts/build_ternary_cnfet.py): Reproducible Python script (`bpy` / `bmesh`) that parametrically constructs the atomic geometry, PBR materials, three-point studio lighting, 3D annotations, and animation keyframes.
 * [`renders/`](renders/): High-resolution renders captured with EEVEE Next.
