@@ -1,0 +1,47 @@
+[
+  {
+    "id": "scene_01_anatomy",
+    "title": "1. Gate-All-Around CNFET Architecture",
+    "formula": "Si / SiO2 Substrate  |  Pd/Au Contacts  |  HfO2 High-k (IOR 1.90)",
+    "narration": "In a Carbon Nanotube Field-Effect Transistor, semiconducting single-walled carbon nanotubes bridge Palladium and Gold source and drain contacts over a silicon dioxide substrate. A coaxial Gate-All-Around stack of hafnium oxide and metal surrounds each nanotube channel.",
+    "audio_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_01_anatomy.mp3",
+    "vtt_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_01_anatomy.vtt",
+    "duration_sec": 17.52
+  },
+  {
+    "id": "scene_02_chirality",
+    "title": "2. Chiral Diameter & Threshold Voltage Modulation",
+    "formula": "d_CNT = 0.0783 * n (nm)   |   Eg = 0.84 eV / d_CNT   |   Vth = 0.43 V / d_CNT",
+    "narration": "The threshold voltage is inversely proportional to the nanotube diameter. The front wide thirteen-zero nanotube measures one point zero two nanometers across, yielding a low threshold of zero point four two volts. The rear narrow seven-zero nanotube measures zero point five five nanometers, producing a high threshold of zero point seven eight volts.",
+    "audio_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_02_chirality.mp3",
+    "vtt_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_02_chirality.vtt",
+    "duration_sec": 23.736
+  },
+  {
+    "id": "scene_03_state_minus1",
+    "title": "3. Balanced Ternary State -1 (Vgs < 0.42 V)",
+    "formula": "STATE -1:  Vgs < Vth1 < Vth2   |   CH1 (13,0): OFF   |   CH2 (7,0): OFF",
+    "narration": "In balanced ternary state minus one, the gate voltage remains below zero point four two volts. Both conduction band barriers, E C one and E C two, stay elevated, blocking electron injection into both channels.",
+    "audio_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_03_state_minus1.mp3",
+    "vtt_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_03_state_minus1.vtt",
+    "duration_sec": 15.696
+  },
+  {
+    "id": "scene_04_state_0",
+    "title": "4. Balanced Ternary State 0 (0.42 V <= Vgs < 0.78 V)",
+    "formula": "STATE 0:  Vth1 <= Vgs < Vth2   |   CH1 (13,0): BALLISTIC ON   |   CH2 (7,0): OFF",
+    "narration": "In balanced ternary state zero, the gate voltage reaches the intermediate window between zero point four two and zero point seven eight volts. The cyan barrier E C one drops, triggering ballistic electron transport through the wide nanotube, while the high pink barrier E C two keeps the narrow nanotube switched off.",
+    "audio_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_04_state_0.mp3",
+    "vtt_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_04_state_0.vtt",
+    "duration_sec": 20.688
+  },
+  {
+    "id": "scene_05_state_plus1",
+    "title": "5. Balanced Ternary State +1 (Vgs >= 0.78 V)",
+    "formula": "STATE +1:  Vgs >= Vth2 > Vth1   |   CH1 (13,0): ON   |   CH2 (7,0): BALLISTIC ON",
+    "narration": "In balanced ternary state plus one, the gate voltage exceeds zero point seven eight volts. Both potential barriers drop below the source Fermi level, enabling simultaneous ballistic conduction across both carbon nanotubes.",
+    "audio_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_05_state_plus1.mp3",
+    "vtt_path": "/home/robson/coding/ternary-cnfet-3d/video/audio/scene_05_state_plus1.vtt",
+    "duration_sec": 15.192
+  }
+]

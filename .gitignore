@@ -1,1 +1,7 @@
 *.blend1
+remotion-video/node_modules/
+remotion-video/out/
+video/manim/videos/**/partial_movie_files/
+video/manim/Tex/
+video/manim/texts/
+__pycache__/
