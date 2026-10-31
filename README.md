@@ -1,63 +1,63 @@
 # Ternary CNFET 3D Visualization (Blender 4.5)
 
-Modelagem atômica procedural, materiais PBR e animação operacional em 3D de **Transistores de Efeito de Campo de Nanotubos de Carbono (CNFETs)** com arquitetura *Gate-All-Around* (GAA), demonstrando o transporte balístico de elétrons e a **modulação de tensão de limiar por diâmetro ($V_{th} \propto 1/d_{\text{CNT}}$)** aplicada em circuitos integrados de lógica ternária balanceada ($\{-1, 0, +1\}$).
+Procedural atomic modeling, PBR materials, and 3D operational animation of **Carbon Nanotube Field-Effect Transistors (CNFETs)** featuring a *Gate-All-Around* (GAA) architecture. This visualization demonstrates ballistic electron transport and **diameter-dependent threshold voltage modulation ($V_{th} \propto 1/d_{\text{CNT}}$)** applied to balanced ternary logic integrated circuits ($\{-1, 0, +1\}$).
 
-![Estado Ternário 0: Tubo Largo (13,0) Conduzindo vs. Tubo Estreito (7,0) Bloqueado](renders/cnfet_ternary_state0.png)
+![Ternary State 0: Wide Tube (13,0) Conducting vs. Narrow Tube (7,0) Blocked](renders/cnfet_ternary_state0.png)
 
 ---
 
-## 1. Fundamento Físico: Limiar Multi-Valorado por Quiralidade
+## 1. Physical Foundation: Multi-Threshold Control via Chirality
 
-Nos transistores CNFET, o canal condutor é formado por nanotubos de carbono de parede única (*Single-Walled Carbon Nanotubes*, SWCNTs). Para nanotubos semicondutores do tipo zigzag $(n, 0)$, o diâmetro físico $d_{\text{CNT}}$, a banda proibida (*bandgap*, $E_g$) e a tensão de limiar ($V_{th}$) obedecem às relações:
+In a CNFET, the conductive channel consists of one or more Single-Walled Carbon Nanotubes (SWCNTs). For semiconducting zigzag $(n, 0)$ nanotubes, the physical diameter $d_{\text{CNT}}$, the bandgap energy $E_g$, and the threshold voltage $V_{th}$ follow these analytical relationships:
 
 $$d_{\text{CNT}} = \frac{\sqrt{3} a_{\text{CC}}}{\pi} n \approx 0.0783 \cdot n\text{ (nm)}$$
 
 $$E_g \approx \frac{0.84\text{ eV}}{d_{\text{CNT}}\text{ (nm)}}, \qquad V_{th} \approx \frac{0.43\text{ V}}{d_{\text{CNT}}\text{ (nm)}}$$
 
-Ao integrar dois nanotubos de diâmetros distintos sob um mesmo barramento de porta ($V_{GS}$), obtêm-se dois patamares de chaveamento ativos no mesmo substrato, viabilizando portas ternárias (STI, PTI, NTI e arquiteturas ternárias balanceadas como Setun / REBEL-6) sem divisores resistivos passivos:
+By integrating two nanotubes of distinct diameters under a shared gate bus ($V_{GS}$), two active switching thresholds are achieved on the same substrate. This enables native ternary logic gates (Standard, Positive, and Negative Ternary Inverters, as well as balanced ternary architectures such as Setun and REBEL-6) without passive resistive voltage dividers:
 
-| Parâmetro | Canal 1: SWCNT `(13,0)` (Frontal) | Canal 2: SWCNT `(7,0)` (Traseiro) |
+| Parameter | Channel 1: SWCNT `(13,0)` (Front) | Channel 2: SWCNT `(7,0)` (Rear) |
 | :--- | :---: | :---: |
-| **Diâmetro Físico ($d_{\text{CNT}}$)** | $1.02\text{ nm}$ | $0.55\text{ nm}$ |
-| **Tensão de Limiar ($V_{th}$)** | **$V_{th1} \approx 0.42\text{ V}$ (Baixo)** | **$V_{th2} \approx 0.78\text{ V}$ (Alto)** |
-| **Malha Atômica Gerada (`bmesh`)** | 726 átomos de C ($sp^2$), 1078 ligações $\sigma$ | 518 átomos de C ($sp^2$), 770 ligações $\sigma$ |
-| **Estado `-1` ($V_{GS} < 0.42\text{ V}$)** | Bloqueado ($E_{C1}$ alta) | Bloqueado ($E_{C2}$ alta) |
-| **Estado `0` ($0.42\text{ V} \le V_{GS} < 0.78\text{ V}$)** | **Condução Balística ($E_{C1}$ baixa)** | **Bloqueado ($E_{C2}$ alta)** |
-| **Estado `+1` ($V_{GS} \ge 0.78\text{ V}$)** | Condução Balística ($E_{C1}$ baixa) | **Condução Balística ($E_{C2}$ baixa)** |
+| **Physical Diameter ($d_{\text{CNT}}$)** | $1.02\text{ nm}$ | $0.55\text{ nm}$ |
+| **Threshold Voltage ($V_{th}$)** | **$V_{th1} \approx 0.42\text{ V}$ (Low)** | **$V_{th2} \approx 0.78\text{ V}$ (High)** |
+| **Generated Atomic Mesh (`bmesh`)** | 726 C atoms ($sp^2$), 1078 $\sigma$ bonds | 518 C atoms ($sp^2$), 770 $\sigma$ bonds |
+| **State `-1` ($V_{GS} < 0.42\text{ V}$)** | Blocked (High $E_{C1}$) | Blocked (High $E_{C2}$) |
+| **State `0` ($0.42\text{ V} \le V_{GS} < 0.78\text{ V}$)** | **Ballistic Conduction (Low $E_{C1}$)** | **Blocked (High $E_{C2}$)** |
+| **State `+1` ($V_{GS} \ge 0.78\text{ V}$)** | Ballistic Conduction (Low $E_{C1}$) | **Ballistic Conduction (Low $E_{C2}$)** |
 
 ---
 
-## 2. Galeria de Estados Operacionais
+## 2. Operational State Gallery
 
-### Progressão dos 3 Estados Ternários (`-1`, `0`, `+1` nos Quadros 20, 85 e 160)
-![Progressão dos 3 Estados Ternários](renders/cnfet_ternary_3states.png)
+### Progression Across the 3 Balanced Ternary States (`-1`, `0`, `+1` at Frames 20, 85, and 160)
+![Progression of the 3 Ternary States](renders/cnfet_ternary_3states.png)
 
-### Anatomia de Canal Único `SWCNT (9,0)` e Transporte Balístico
-![CNFET de Canal Único](renders/cnfet_single_channel_on.png)
+### Single-Channel `SWCNT (9,0)` Anatomy and Ballistic Transport
+![Single-Channel CNFET](renders/cnfet_single_channel_on.png)
 
-![Comparação OFF vs ON em Canal Único](renders/cnfet_single_channel_states.png)
-
----
-
-## 3. Estrutura do Repositório
-
-* [`blend/cnfet_ternary_threshold.blend`](blend/cnfet_ternary_threshold.blend): Cena completa no Blender 4.5 LTS contendo os dois canais SWCNT `(13,0)` e `(7,0)`, contatos de Paládio/Ouro ($\text{Pd}/\text{Au}$), dielétrico high-k $\text{HfO}_2$ ($\text{IOR} = 1.90$) em corte de seção, colar metálico GAA, portadores emissivos e curvas 3D das bandas de condução $E_{C1}$ e $E_{C2}$ animadas via *Shape Keys* (quadros 1 a 180).
-* [`scripts/build_ternary_cnfet.py`](scripts/build_ternary_cnfet.py): Script Python (`bpy` / `bmesh`) que reconstrói parametricamente toda a geometria atômica, materiais PBR, iluminação de estúdio em três pontos, rótulos 3D e keyframes de animação.
-* [`renders/`](renders/): Capturas renderizadas em EEVEE Next em alta resolução.
-* [`docs/plan.md`](docs/plan.md): Especificação arquitetural da cena e coleções.
-* [`docs/walkthrough.md`](docs/walkthrough.md): Documentação detalhada da física e das camadas visuais.
+![OFF vs. ON State Comparison in Single-Channel CNFET](renders/cnfet_single_channel_states.png)
 
 ---
 
-## 4. Como Reproduzir ou Executar no Blender
+## 3. Repository Structure
 
-Para abrir diretamente o projeto pronto:
+* [`blend/cnfet_ternary_threshold.blend`](blend/cnfet_ternary_threshold.blend): Complete Blender 4.5 LTS scene containing the dual `SWCNT (13,0)` and `SWCNT (7,0)` channels, Palladium/Gold ($\text{Pd}/\text{Au}$) ohmic contacts, cutaway $\text{HfO}_2$ high-k dielectric ($\text{IOR} = 1.90$), GAA metal gate collars, emissive charge carriers, and 3D conduction band curves ($E_{C1}$, $E_{C2}$) animated via Shape Keys across frames 1 to 180.
+* [`scripts/build_ternary_cnfet.py`](scripts/build_ternary_cnfet.py): Reproducible Python script (`bpy` / `bmesh`) that parametrically constructs the atomic geometry, PBR materials, three-point studio lighting, 3D annotations, and animation keyframes.
+* [`renders/`](renders/): High-resolution renders captured with EEVEE Next.
+* [`docs/plan.md`](docs/plan.md): Architectural specification of the scene hierarchy and collections.
+* [`docs/walkthrough.md`](docs/walkthrough.md): Detailed technical walkthrough of the device physics and visual layers.
+
+---
+
+## 4. How to Open or Rebuild in Blender
+
+To open the pre-built scene directly:
 
 ```bash
 blender blend/cnfet_ternary_threshold.blend
 ```
 
-Para regerar a cena do zero via linha de comando a partir do script procedural:
+To rebuild the entire scene from scratch using the procedural Python generator:
 
 ```bash
 blender --python scripts/build_ternary_cnfet.py
