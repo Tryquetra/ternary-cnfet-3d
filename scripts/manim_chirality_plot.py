@@ -15,7 +15,7 @@ class TernaryCNFETThresholdPlot(Scene):
         # Title Header
         title = Text(
             "CNFET Threshold Modulation via Nanotube Diameter",
-            font="DejaVu Sans",
+            font="Liberation Sans",
             font_size=32,
             weight=BOLD,
             color="#f0f6fc",
@@ -23,7 +23,7 @@ class TernaryCNFETThresholdPlot(Scene):
 
         subtitle = Text(
             "d_CNT = 0.0783 * n (nm)     |     Eg = 0.84 eV / d_CNT     |     Vth = 0.43 V / d_CNT",
-            font="DejaVu Sans Mono",
+            font="Liberation Mono",
             font_size=20,
             color="#38bdf8",
         ).next_to(title, DOWN, buff=0.18)
@@ -32,11 +32,11 @@ class TernaryCNFETThresholdPlot(Scene):
         axes = Axes(
             x_range=[0.4, 1.4, 0.2],
             y_range=[0.0, 1.2, 0.2],
-            x_length=7.4,
+            x_length=6.8,
             y_length=3.8,
             axis_config={"color": "#94a3b8", "include_tip": True, "stroke_width": 2.5},
             tips=True,
-        ).shift(UP * 0.15 + LEFT * 1.05)
+        ).shift(UP * 0.18 + LEFT * 1.55)
 
         x_label = Text("Diameter d_CNT (nm)", font="Liberation Sans", font_size=18, color="#cbd5e1").next_to(
             axes.x_axis, DOWN, buff=0.38
@@ -75,10 +75,10 @@ class TernaryCNFETThresholdPlot(Scene):
         v_line1 = DashedLine(axes.c2p(d1, 0.0), pt1, color="#00f2d4", stroke_width=2.2)
         lbl1 = Text(
             "CH1: SWCNT (13,0)\nd1 = 1.02 nm -> Vth1 = 0.42 V",
-            font="DejaVu Sans Mono",
-            font_size=16,
+            font="Liberation Mono",
+            font_size=14,
             color="#00f2d4",
-        ).next_to(pt1, UP + RIGHT, buff=0.2)
+        ).next_to(pt1, UP, buff=0.22).shift(RIGHT * 0.65)
 
         # Operating Point 2: Narrow SWCNT (7,0) -> d2 = 0.55 nm, Vth2 = 0.78 V
         d2, vth2 = 0.55, 0.43 / 0.55
@@ -89,10 +89,10 @@ class TernaryCNFETThresholdPlot(Scene):
         v_line2 = DashedLine(axes.c2p(d2, 0.0), pt2, color="#f59e0b", stroke_width=2.2)
         lbl2 = Text(
             "CH2: SWCNT (7,0)\nd2 = 0.55 nm -> Vth2 = 0.78 V",
-            font="DejaVu Sans Mono",
-            font_size=16,
+            font="Liberation Mono",
+            font_size=14,
             color="#f59e0b",
-        ).next_to(pt2, RIGHT, buff=0.25)
+        ).next_to(pt2, UP + RIGHT, buff=0.12).shift(RIGHT * 0.15)
 
         # Right-hand Ternary State Legend Box
         box_group = VGroup()
@@ -105,8 +105,8 @@ class TernaryCNFETThresholdPlot(Scene):
             card = RoundedRectangle(
                 corner_radius=0.12, width=4.1, height=1.05, stroke_color=col, stroke_width=2.5, fill_color=col, fill_opacity=0.12
             )
-            t1 = Text(st_title, font="DejaVu Sans Mono", font_size=16, weight=BOLD, color=col)
-            t2 = Text(st_sub, font="DejaVu Sans Mono", font_size=14, color="#e2e8f0")
+            t1 = Text(st_title, font="Liberation Mono", font_size=16, weight=BOLD, color=col)
+            t2 = Text(st_sub, font="Liberation Mono", font_size=14, color="#e2e8f0")
             txt = VGroup(t1, t2).arrange(DOWN, buff=0.08).move_to(card.get_center())
             item = VGroup(card, txt).move_to(RIGHT * 4.45 + UP * (1.2 - idx * 1.35))
             box_group.add(item)

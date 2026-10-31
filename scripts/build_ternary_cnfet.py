@@ -101,6 +101,9 @@ def build_ternary_cnfet_scene(output_blend_path=None):
         "Mat_Label_White": make_material("Mat_Label_White", (0.96, 0.98, 1.0), roughness=0.2, emission_color=(0.95, 0.98, 1.0), emission_strength=3.2),
         "Mat_Label_Cyan": make_material("Mat_Label_Cyan", (0.20, 0.98, 0.88), roughness=0.2, emission_color=(0.20, 0.98, 0.88), emission_strength=4.0),
         "Mat_Label_Amber": make_material("Mat_Label_Amber", (1.0, 0.68, 0.22), roughness=0.2, emission_color=(1.0, 0.65, 0.20), emission_strength=4.0),
+        "Mat_Label_Green": make_material("Mat_Label_Green", (0.18, 0.95, 0.45), roughness=0.2, emission_color=(0.18, 0.95, 0.45), emission_strength=4.0),
+        "Mat_Label_Red": make_material("Mat_Label_Red", (1.0, 0.28, 0.42), roughness=0.2, emission_color=(1.0, 0.28, 0.42), emission_strength=4.0),
+        "Mat_Label_Backplate": make_material("Mat_Label_Backplate", (0.015, 0.022, 0.038), metallic=0.1, roughness=0.85),
         "Mat_Leader_Line": make_material("Mat_Leader_Line", (0.60, 0.78, 0.96), roughness=0.2, emission_color=(0.60, 0.78, 0.96), emission_strength=2.2),
     }
 
@@ -431,14 +434,14 @@ def build_ternary_cnfet_scene(output_blend_path=None):
                 tip.data.materials.append(mats["Mat_Leader_Line"])
                 link_to_col(tip, "07_Studio_Annotations")
 
-    add_annotation("Header", "TERNARY CNFET THRESHOLD: Vth = 0.43V / d_CNT", (0.0, 1.5, 3.85), None, size=0.29, mat_name="Mat_Label_White")
-    add_annotation("SubHeader", "STATE 0 (Vth1 < Vgs < Vth2): WIDE TUBE CONDUCTS | NARROW TUBE BLOCKED", (0.0, 1.5, 3.42), None, size=0.21, mat_name="Mat_Label_Cyan")
-    add_annotation("Source", "SOURCE (Pd/Au)", (-5.05, -0.2, 2.45), (-4.95, -0.2, 1.80), size=0.24)
-    add_annotation("Drain", "DRAIN (Pd/Au)", (5.05, -0.2, 2.45), (4.95, -0.2, 1.80), size=0.24)
-    add_annotation("WideCh", "CH1: SWCNT (13,0) d1=1.02nm | Low Vth1=0.42V (ON)", (2.05, -1.40, 2.25), (2.25, -1.40, 1.52), size=0.20, mat_name="Mat_Label_Cyan")
-    add_annotation("NarrowCh", "CH2: SWCNT (7,0) d2=0.55nm | High Vth2=0.78V (OFF)", (-0.65, 1.40, 2.65), (-0.65, 1.40, 1.88), size=0.20, mat_name="Mat_Label_Amber")
-    add_annotation("Band_Ec1", "Ec1 (Low Vth1): Barrier Lowered -> ON", (-2.1, -4.25, 0.12), None, size=0.18, mat_name="Mat_Label_Cyan")
-    add_annotation("Band_Ec2", "Ec2 (High Vth2): High Barrier -> OFF", (2.1, -4.25, 0.12), None, size=0.18, mat_name="Mat_Label_Amber")
+    add_annotation("Header", "TERNARY CNFET THRESHOLD: Vth = 0.43V / d_CNT", (0.0, 1.5, 4.25), None, size=0.28, mat_name="Mat_Label_White")
+    add_annotation("SubHeader", "STATE 0 (Vth1 < Vgs < Vth2): WIDE TUBE CONDUCTS | NARROW TUBE BLOCKED", (0.0, 1.5, 3.80), None, size=0.20, mat_name="Mat_Label_Cyan")
+    add_annotation("Source", "SOURCE (Pd/Au)", (-5.15, -0.2, 2.45), (-4.95, -0.2, 1.80), size=0.23)
+    add_annotation("Drain", "DRAIN (Pd/Au)", (5.05, -0.2, 2.45), (4.95, -0.2, 1.80), size=0.23)
+    add_annotation("WideCh", "CH1: SWCNT (13,0) d1=1.02nm | Low Vth1=0.42V (ON)", (2.75, -1.40, 3.32), (2.45, -1.40, 1.52), size=0.185, mat_name="Mat_Label_Cyan")
+    add_annotation("NarrowCh", "CH2: SWCNT (7,0) d2=0.55nm | High Vth2=0.78V (OFF)", (-1.75, 1.40, 2.85), (-1.25, 1.40, 1.65), size=0.185, mat_name="Mat_Label_Amber")
+    add_annotation("Band_Ec1", "Ec1 (Low Vth1): Barrier Lowered -> ON", (-2.35, -4.25, 0.14), None, size=0.175, mat_name="Mat_Label_Cyan")
+    add_annotation("Band_Ec2", "Ec2 (High Vth2): High Barrier -> OFF", (0.85, -4.35, 0.08), None, size=0.175, mat_name="Mat_Label_Amber")
 
     scene.frame_set(85)
     if output_blend_path:
